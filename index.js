@@ -1,13 +1,11 @@
 const express = require('express');
-const passport = require('passport');
-const GoogleStrategy = require('passport-google-oauth20').Strategy;
+require('./services/passport');
+
 
 const app = express();
 //https://console.developers.google.com/
-//clientID 385352893850-okvdt66ob3ffv88c3seq7f0kuqnqhtq7.apps.googleusercontent.com
-//client secret ktOjaTxfKG2jVwzZStzsarSI
-passport.use(new GoogleStrategy());
 
+require('./routes/authRoutes')(app);
 
 
 const PORT = process.env.PORT || 5000;
